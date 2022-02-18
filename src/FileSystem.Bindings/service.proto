@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package AwesomeTools.Grpc.FileSystem;
+option csharp_namespace = "AwesomeTools.Grpc.FileSystem";
+import "messages.proto";
+
+service FileSystem {
+    rpc ListFiles(ListFileRequest) returns (stream FileItem);
+    rpc OpenFileData(FileItem) returns (stream FileData);
+    rpc CalculateHash(FileItem) returns (CalculateHashResponse);
+    // rpc Write(stream WriteFileData) returns WriteFileResult;
+    rpc DeleteFile(FileItem) returns (DeleteFileResponse);
+}

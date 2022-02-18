@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package AwesomeTools.Grpc.FileSystem;
+option csharp_namespace = "AwesomeTools.Grpc.FileSystem";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+
+message ListFileRequest {
+    google.protobuf.Int32Value OlderThanMinutes = 1;
+    // não vamos colocar uma pasta
+}
+message FileItem {
+    google.protobuf.StringValue FileName = 1;
+    google.protobuf.UInt64Value Length = 2; //optional
+    google.protobuf.Timestamp LastModified = 3; //optional
+}
+
+message FileData {
+    bytes Data = 1;
+}
+
+message CalculateHashResponse {
+    google.protobuf.StringValue Hash = 1;
+}
+// message WriteFileData {
+//     google.protobuf.StringValue FileName = 1; // make sure the path is rooted correctly
+    
+// }
+message DeleteFileResponse{
+    
+}
