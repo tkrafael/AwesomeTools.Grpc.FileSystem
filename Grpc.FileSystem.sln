@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystem.Bindings", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystem.Server", "src\FileSystem.Server\FileSystem.Server.csproj", "{3E006DC9-B4EE-4EF3-B4AE-90562641DB58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystem.Client", "src\FileSystem.Client\FileSystem.Client.csproj", "{6959855C-F07D-472F-8CCB-20F799F253FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +28,14 @@ Global
 		{3E006DC9-B4EE-4EF3-B4AE-90562641DB58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E006DC9-B4EE-4EF3-B4AE-90562641DB58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E006DC9-B4EE-4EF3-B4AE-90562641DB58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6959855C-F07D-472F-8CCB-20F799F253FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6959855C-F07D-472F-8CCB-20F799F253FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6959855C-F07D-472F-8CCB-20F799F253FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6959855C-F07D-472F-8CCB-20F799F253FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{19E37279-9051-4BC1-B2A6-287965AB2E70} = {315BF60F-73B8-41E0-B321-59F93E3A6F86}
 		{3E006DC9-B4EE-4EF3-B4AE-90562641DB58} = {315BF60F-73B8-41E0-B321-59F93E3A6F86}
+		{6959855C-F07D-472F-8CCB-20F799F253FB} = {315BF60F-73B8-41E0-B321-59F93E3A6F86}
 	EndGlobalSection
 EndGlobal

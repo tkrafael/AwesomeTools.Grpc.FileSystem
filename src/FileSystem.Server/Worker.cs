@@ -1,20 +1,32 @@
+using Grpc.Core;
+
 namespace Bemobi.ProtocolBuffers.FileSystem.Server;
 
-public class Worker : BackgroundService
+public class Worker : IHostedService
 {
     private readonly ILogger<Worker> _logger;
+
+    private Func<Task> Stop;
 
     public Worker(ILogger<Worker> logger)
     {
         _logger = logger;
     }
-
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    public Task StartAsync(CancellationToken cancellationToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
+        var s = new ServerFileSystem((virtualpath: "/myfiles/", realpath: "/workspaces/"));
+        var server = new Grpc.Core.Server
         {
-            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            await Task.Delay(1000, stoppingToken);
-        }
+            Services = { AwesomeTools.Grpc.FileSystem.FileSystem.BindService(s) },
+            Ports = { new ServerPort("0.0.0.0", 41000, ServerCredentials.Insecure) },
+        };
+        server.Start();
+        this.Stop = server.ShutdownAsync;
+        return Task.CompletedTask;
+    }
+
+    public Task StopAsync(CancellationToken cancellationToken)
+    {
+        return this.Stop();
     }
 }
