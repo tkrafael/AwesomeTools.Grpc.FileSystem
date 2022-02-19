@@ -6,13 +6,14 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
 message ListFileRequest {
-    google.protobuf.Int32Value OlderThanMinutes = 1;
+    int32 OlderThanMinutes = 1;
     // não vamos colocar uma pasta
 }
 message FileItem {
-    google.protobuf.StringValue FileName = 1;
-    google.protobuf.UInt64Value Length = 2; //optional
+    string FileName = 1;
+    int64 Length = 2; //optional
     google.protobuf.Timestamp LastModified = 3; //optional
+    string FileProvider = 4;
 }
 
 message FileData {
